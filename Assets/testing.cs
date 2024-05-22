@@ -14,5 +14,6 @@ public class testing : MonoBehaviour
     void Update()
     {
         ff
+            g
     }
 }
