@@ -19,6 +19,11 @@ public class NewBehaviourScript : MonoBehaviour
     private int enemiesLeftToSpawn;
     private bool isSpawning;
 
+    private void Start()
+    {
+        StartWave();
+    }
+
     void StartWave()
     {
         isSpawning = true;
