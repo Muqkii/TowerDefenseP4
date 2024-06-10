@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Enemies/Enemy scripts/Another_Enemy_Spawn.cs.meta
+guid: f5f194b3c114383489611797eb199276
+========
+guid: 0220db22a36271d4895a5b001b1b7cb4
+>>>>>>>> Towers:Assets/Towers/Scripts/Camera Controlls.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
