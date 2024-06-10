@@ -497,150 +497,90 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -0.66212046
+        z: -1.0506471
       TangentOut:
         x: 0
         y: 0
-        z: 0.66212046
+        z: 1.0506471
       Rotation:
         value:
-          x: 0
-          y: -0.35497507
-          z: -0
-          w: 0.9348758
+          x: -0.00000004537484
+          y: 0.021252057
+          z: 9.645265e-10
+          w: 0.9997741
     - Position:
-        x: -4.394594
-        y: 0
-        z: 4.9525642
+        x: 0.4464674
+        y: 0.0000009536743
+        z: 10.496981
       TangentIn:
         x: -0
         y: -0
-        z: -1.8806343
+        z: -3.5921185
       TangentOut:
         x: 0
         y: 0
-        z: 2.0934837
+        z: 3.9423509
       Rotation:
         value:
-          x: 0
-          y: -0.048506625
-          z: -0
-          w: 0.9988228
+          x: 0.000000015212567
+          y: -0.07851294
+          z: 0.0000000015935392
+          w: 0.9969131
     - Position:
-        x: -0.23496819
-        y: 0
-        z: 12.024769
+        x: -3.9746609
+        y: -0.0000009536743
+        z: 22.354704
       TangentIn:
         x: -0
         y: -0
-        z: -2.8142557
+        z: -3.86948
       TangentOut:
         x: 0
         y: 0
-        z: 3.067629
+        z: 3.8416493
       Rotation:
         value:
-          x: 0
-          y: 0.34107473
-          z: 0
-          w: 0.9400363
+          x: -0.000000021353163
+          y: 0.022128992
+          z: 4.0952006e-10
+          w: 0.99975514
     - Position:
-        x: 7.1566095
-        y: 0
-        z: 18.380983
+        x: 1.3993235
+        y: 0.0000019073486
+        z: 33.611446
       TangentIn:
         x: -0
         y: -0
-        z: -2.5274928
+        z: -3.900533
       TangentOut:
         x: 0
         y: 0
-        z: 2.3359542
+        z: 3.5817742
       Rotation:
         value:
-          x: 0
-          y: 0.11642673
-          z: 0
-          w: 0.99319935
+          x: -0.000000012117859
+          y: 0.12183664
+          z: 0.000000001857139
+          w: 0.9925502
     - Position:
-        x: 3.9614744
+        x: 1.8530941
         y: 0
-        z: 26.07072
+        z: 44.119938
       TangentIn:
         x: -0
         y: -0
-        z: -2.79848
+        z: -1.0518285
       TangentOut:
         x: 0
         y: 0
-        z: 3.1051471
+        z: 1.0518285
       Rotation:
         value:
-          x: 0
-          y: -0.33499023
-          z: -0
-          w: 0.94222164
-    - Position:
-        x: -4.5102844
-        y: 0
-        z: 31.844439
-      TangentIn:
-        x: -0
-        y: -0
-        z: -2.212632
-      TangentOut:
-        x: 0
-        y: 0
-        z: 1.9270627
-      Rotation:
-        value:
-          x: 0
-          y: -0.08530099
-          z: -0
-          w: 0.99635524
-    - Position:
-        x: 0.077261925
-        y: 0
-        z: 38.12373
-      TangentIn:
-        x: -0
-        y: -0
-        z: -2.6437862
-      TangentOut:
-        x: 0
-        y: 0
-        z: 2.987009
-      Rotation:
-        value:
-          x: 0
-          y: 0.1750308
-          z: 0
-          w: 0.984563
-    - Position:
-        x: 0.7991934
-        y: 0
-        z: 48.024227
-      TangentIn:
-        x: -0
-        y: -0
-        z: -0.9926784
-      TangentOut:
-        x: 0
-        y: 0
-        z: 0.9926784
-      Rotation:
-        value:
-          x: 0
-          y: 0.036386907
-          z: 0
-          w: 0.9993378
+          x: 0.00000009064713
+          y: 0.021575583
+          z: -0.0000000019562203
+          w: 0.9997671
     m_MetaData:
-    - Mode: 0
-      Tension: 0.5
-    - Mode: 0
-      Tension: 0.5
-    - Mode: 0
-      Tension: 0.5
     - Mode: 0
       Tension: 0.5
     - Mode: 0
@@ -671,7 +611,7 @@ Transform:
   m_GameObject: {fileID: 1624464833}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6368952, y: 0.43268776, z: -23.734234}
+  m_LocalPosition: {x: 1.4096966, y: 0.43268776, z: -23.3137}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -757,18 +697,15 @@ MonoBehaviour:
   thePath: {fileID: 1624464834}
   waves:
   - enemiesToSpawn:
-    - {fileID: 660152028444967811, guid: db4d118390d093943b69d5e22d1c73af, type: 3}
-    groupsSpawnSize: 04000000
-    enemySpawnDelay: 1
-    groupSpawnDelay: 0
-    waveSpawnDelay: 5
-  - enemiesToSpawn:
-    - {fileID: 660152028444967811, guid: db4d118390d093943b69d5e22d1c73af, type: 3}
-    - {fileID: 6324740615087507839, guid: 564e51fdd8afdb84bbce530bec46a4e3, type: 3}
-    groupsSpawnSize: 0300000002000000
-    enemySpawnDelay: 1
-    groupSpawnDelay: 3
-    waveSpawnDelay: 5
+    - {fileID: 5823369530194407954, guid: 1bfe3e01c5c9bd74690d284c6058ba35, type: 3}
+    - {fileID: 6627079436338407525, guid: 5d4155f1e404cf244965983683eec684, type: 3}
+    - {fileID: 469820338282584927, guid: 0d750c7e22b0b8e45b299b37f1125756, type: 3}
+    - {fileID: 1451687144088691862, guid: e2f9aeb02aff41648a872e5ba3e54bdc, type: 3}
+    - {fileID: 7898149733948960404, guid: 39c4de7705d8821458fb5bb0e01de1c7, type: 3}
+    groupsSpawnSize: 0100000001000000010000000100000001000000
+    enemySpawnDelay: 0
+    groupSpawnDelay: 1
+    waveSpawnDelay: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

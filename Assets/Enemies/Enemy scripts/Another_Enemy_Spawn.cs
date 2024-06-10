@@ -23,16 +23,15 @@ public class Another_Enemy_Spawn : MonoBehaviour
     float timerEnemy;
     float timerGroup;
 
-    Vector3 spawnPosition;
+    Vector3 endLocation;
     Transform actualPos;
+
     
     public Wave[] waves;
     int waveLength;
     int currentWave;
     int currentGroup;
     int currentEnemy;
-
-    int enemiesSpawned;
 
     bool gameEnd;
 
@@ -43,9 +42,11 @@ public class Another_Enemy_Spawn : MonoBehaviour
         timerWave = waves[currentWave].waveSpawnDelay;
         //timerEnemy = waves[currentWave].enemySpawnDelay;
         //timerGroup = waves[currentWave].groupSpawnDelay;
-        var knot = thePath.Spline.ToArray()[0];
-        spawnPosition = knot.Position;
-        actualPos.position = spawnPosition;
+        Transform lastKnot;
+        Vector3 pos = thePath.Spline.ToArray()[thePath.Splines.Count-1].Position;
+
+        
+        //actualPos.position = spawnPosition;
     }
 
     void Update()
@@ -109,7 +110,7 @@ public class Another_Enemy_Spawn : MonoBehaviour
                     timerEnemy -= Time.deltaTime;
                     if (timerEnemy < 0.0f)
                     {
-                        GameObject obj = Instantiate(waves[currentWave].enemiesToSpawn[currentGroup], actualPos);
+                        GameObject obj = Instantiate(waves[currentWave].enemiesToSpawn[currentGroup]);
 
                         obj.GetComponent<SplineAnimate>().Container = thePath;
 
