@@ -9,8 +9,16 @@ public class Enemy_stats : MonoBehaviour
     public float health;
     public float speed;
 
-    private void Start()
+    private void Update()
     {
-        
+        KillYourself();
+    }
+
+    private void KillYourself()
+    {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

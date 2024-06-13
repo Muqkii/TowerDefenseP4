@@ -7,12 +7,13 @@ public class TowerBehavior : MonoBehaviour
     public float rangeValue;
     public float fireRate;
     public float hitDelay;
-    public float damage;
+    public float towerDamage;
     public float aoeSize;
     public bool hitAir;
     public bool hitGround;
 
-    public Enemy_stats enemyStats;
+    private GameObject gevondenEnemy;
+    private float enemyHealth;
 
     private bool ableToShoot = true;
 
@@ -32,11 +33,18 @@ public class TowerBehavior : MonoBehaviour
                 if (hitCollider.CompareTag("Enemy"))
                 {
                     float distance = Vector3.Distance(transform.position, hitCollider.transform.position);
+                    gevondenEnemy = hitCollider.gameObject;
                     if (distance < closestDistance)
                     {
                         closestDistance = distance;
                         closestEnemy = hitCollider.gameObject;
                         closestEnemyPosition = hitCollider.transform.position;
+                        Debug.Log("enemy is gevonden q");
+                        if (ableToShoot == true)
+                        {
+                            Debug.Log("attack cycle word aangeroepen q");
+                            AttackCycle();
+                        }
                     }
                 }
             } 
@@ -50,14 +58,14 @@ public class TowerBehavior : MonoBehaviour
                         closestDistance = distance;
                         closestEnemy = hitCollider.gameObject;
                         closestEnemyPosition = hitCollider.transform.position;
+                        if (closestEnemy != null && ableToShoot == true)
+                        {
+                            AttackCycle();
+                            Debug.Log("attack cycle word aangeroepen q");
+                        }
                     }
                 }
             }
-        }
-        
-        if (closestEnemy != null && ableToShoot == true)
-        {
-            AttackCycle();
         }
     }
     public void AttackCycle()
@@ -66,10 +74,12 @@ public class TowerBehavior : MonoBehaviour
 
         Invoke(nameof(EnemyDamage), hitDelay);
         Invoke(nameof(ResetCycle), fireRate);
+        Debug.Log("attack cycle word afgemaakt q");
     }
     private void ResetCycle()
     {
         ableToShoot = true;
+        Debug.Log("cycle word gereset q");
     }
     private void EnemyDamage()
     {
@@ -78,7 +88,11 @@ public class TowerBehavior : MonoBehaviour
         {
             if (hitCollider.CompareTag("Enemy"))
             {
-                enemyStats.health = enemyStats.health - damage;
+                enemyHealth = gevondenEnemy.GetComponent<Enemy_stats>().health;
+                Debug.Log("enemy health is opgeslagen als: " + enemyHealth);
+                enemyHealth -= towerDamage;
+                Debug.Log("enemy health is nu: " + enemyHealth);
+                gevondenEnemy.GetComponent<Enemy_stats>().health = enemyHealth;
             }
         }
     }
