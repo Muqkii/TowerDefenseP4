@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class Enemy_stats : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Enemy_stats : MonoBehaviour
     public float fireRate;
     public float health;
     public float speed;
+    
 
     private void Update()
     {
