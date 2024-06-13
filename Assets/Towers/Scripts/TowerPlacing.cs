@@ -7,6 +7,7 @@ public class TowerPlacing : MonoBehaviour
 {
     public GameObject tower1;
     public GameObject towerPre1;
+    public float rotationSpeed;
     public float xCorrection;
     public float yCorrection;
 
@@ -22,7 +23,7 @@ public class TowerPlacing : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             hitPos = hit.point;
-            hitPos.x += xCorrection;
+            hitPos.x += xCorrection;    
             hitPos.y += yCorrection;
             Debug.Log("Raycast hit");
         }
@@ -37,6 +38,13 @@ public class TowerPlacing : MonoBehaviour
         }
         
         previewTower.transform.position = hitPos;
+
+        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+        if (scrollInput != 0f)
+        {
+            float rotationAmount = scrollInput * rotationSpeed;
+            previewTower.transform.Rotate(Vector3.up, rotationAmount, Space.World);
+        }
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && buildMode == true)
         {
