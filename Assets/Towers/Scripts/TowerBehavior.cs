@@ -53,12 +53,13 @@ public class TowerBehavior : MonoBehaviour
                 if (hitCollider.CompareTag("Air"))
                 {
                     float distance = Vector3.Distance(transform.position, hitCollider.transform.position);
+                    gevondenEnemy = hitCollider.gameObject;
                     if (distance < closestDistance)
                     {
                         closestDistance = distance;
                         closestEnemy = hitCollider.gameObject;
                         closestEnemyPosition = hitCollider.transform.position;
-                        if (closestEnemy != null && ableToShoot == true)
+                        if (ableToShoot == true)
                         {
                             AttackCycle();
                             Debug.Log("attack cycle word aangeroepen q");
@@ -88,11 +89,11 @@ public class TowerBehavior : MonoBehaviour
         {
             if (hitCollider.CompareTag("Enemy"))
             {
-                enemyHealth = gevondenEnemy.GetComponent<Enemy_stats>().health;
-                Debug.Log("enemy health is opgeslagen als: " + enemyHealth);
-                enemyHealth -= towerDamage;
-                Debug.Log("enemy health is nu: " + enemyHealth);
-                gevondenEnemy.GetComponent<Enemy_stats>().health = enemyHealth;
+                gevondenEnemy.GetComponent<Enemy_stats>().health -= towerDamage;
+            }
+            if (hitCollider.CompareTag("Air"))
+            {
+                gevondenEnemy.GetComponent<Enemy_stats>().health -= towerDamage;
             }
         }
     }
