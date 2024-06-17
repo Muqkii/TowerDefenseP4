@@ -13,21 +13,23 @@ public class EndTower : MonoBehaviour
 
     void Update()
     {
-        if (health < 0)
+        /*if (health < 0)
         {
             Debug.Log("Die");
-        }
+        }*/
     }
-
-    void OnCollisionEnter(Collision collision)
+    /*private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Ow i hit" + collision.gameObject.name);
-        if (CompareTag("Air") || CompareTag("Enemy"))
+
+        Debug.Log("Ouch by " + collision.gameObject.name);
+        if (CompareTag("Enemy"))
         {
             float damage = collision.gameObject.GetComponent<Enemy_stats>().damage;
             health -= damage;
             Destroy(collision.gameObject);
             Debug.Log(health);
         }
-    }
+        
+    }*/
+
 }
