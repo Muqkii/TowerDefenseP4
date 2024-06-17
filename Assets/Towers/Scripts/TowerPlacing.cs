@@ -87,6 +87,7 @@ public class TowerPlacing : MonoBehaviour
         if (previewTower)
         {
             previewTower.transform.position = hitPos;
+
         }
 
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
