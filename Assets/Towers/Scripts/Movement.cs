@@ -67,8 +67,8 @@ public class Movement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        Debug.Log("Grounded " + grounded);
-        Debug.Log("ReadyToJump " + readyToJump);
+        //Debug.Log("Grounded " + grounded);
+        //Debug.Log("ReadyToJump " + readyToJump);
 
         // wanneer kan je springen
         if (Input.GetKey(jumpKey) && readyToJump && grounded)

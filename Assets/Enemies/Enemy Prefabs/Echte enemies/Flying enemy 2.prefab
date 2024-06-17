@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6298050568913975040}
   m_Layer: 0
   m_Name: Flying enemy 2
-  m_TagString: Untagged
+  m_TagString: Air
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Target: {fileID: 0}
   m_PlayOnAwake: 1
   m_LoopMode: 0
-  m_Method: 1
+  m_Method: 0
   m_Duration: 30
   m_MaxSpeed: 10
   m_EasingMode: 0

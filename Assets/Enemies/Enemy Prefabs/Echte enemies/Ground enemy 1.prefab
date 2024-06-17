@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: 1586103612186066751}
   - component: {fileID: 6594511248186318497}
   - component: {fileID: 5403084776064151709}
-  - component: {fileID: 3874410943224372107}
   m_Layer: 0
   m_Name: Ground enemy 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   fireRate: 1
-  health: 10
+  health: 100
   speed: 20
 --- !u!114 &5403084776064151709
 MonoBehaviour:
@@ -149,31 +148,3 @@ MonoBehaviour:
   m_ObjectForwardAxis: 2
   m_ObjectUpAxis: 1
   m_StartOffset: 0
---- !u!114 &3874410943224372107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5823369530194407954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9b5e13fefa047040b756f0f010e7bfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thePath: {fileID: 0}
-  gap: 5
-  currentPath:
-    m_EditModeType: 1
-    m_Knots: []
-    m_MetaData: []
-    m_Closed: 0
-    m_IntData:
-      m_Data: []
-    m_FloatData:
-      m_Data: []
-    m_Float4Data:
-      m_Data: []
-    m_ObjectData:
-      m_Data: []
-  currentPathNumber: 0

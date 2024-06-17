@@ -31,7 +31,7 @@ public class TowerPlacing : MonoBehaviour
             hitPos = hit.point;
             hitPos.x += xCorrection;    
             hitPos.y += yCorrection;
-            Debug.Log("Raycast hit");
+            //Debug.Log("Raycast hit");
         }
         
         if (Input.GetKeyDown(KeyCode.Alpha1) && buildMode == false)
@@ -84,8 +84,10 @@ public class TowerPlacing : MonoBehaviour
             previewTower = obj;
             Debug.Log("Buildmode werkt" + buildMode);
         }
-
-        previewTower.transform.position = hitPos;
+        if (previewTower)
+        {
+            previewTower.transform.position = hitPos;
+        }
 
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
         if (scrollInput != 0f)
