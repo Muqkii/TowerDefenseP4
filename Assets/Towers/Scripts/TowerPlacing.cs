@@ -20,6 +20,7 @@ public class TowerPlacing : MonoBehaviour
     private GameObject previewTower;
     private Vector3 hitPos;
     private int towerNumber;
+    private float manaPool;
 
     private void Update()
     {
