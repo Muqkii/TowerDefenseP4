@@ -114,8 +114,8 @@ public class Another_Enemy_Spawn : MonoBehaviour
                         GameObject obj = Instantiate(waves[currentWave].enemiesToSpawn[currentGroup]);
 
                         obj.GetComponent<SplineAnimate>().Container = thePath;
-                        obj.GetComponent<Junction>().thePath = thePath;
-                        obj.GetComponent<Junction>().currentPath = thePath.Splines[0];
+                        //obj.GetComponent<Junction>().thePath = thePath;
+                        //obj.GetComponent<Junction>().currentPath = thePath.Splines[0];
 
                         //GameObject obj = SplineInstantiate.Instantiate<GameObject>(waves[currentWave].enemiesToSpawn[currentGroup]);
 

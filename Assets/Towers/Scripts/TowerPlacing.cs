@@ -31,7 +31,7 @@ public class TowerPlacing : MonoBehaviour
             hitPos = hit.point;
             hitPos.x += xCorrection;    
             hitPos.y += yCorrection;
-            Debug.Log("Raycast hit");
+            //Debug.Log("Raycast hit");
         }
         
         if (Input.GetKeyDown(KeyCode.Alpha1) && buildMode == false)

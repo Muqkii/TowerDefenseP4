@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6650919147167218082}
   m_Layer: 0
   m_Name: Ground enemy 2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 4
   fireRate: 2
-  health: 8
+  health: 70
   speed: 15
 --- !u!114 &-6650919147167218082
 MonoBehaviour:
@@ -140,8 +140,8 @@ MonoBehaviour:
   m_Target: {fileID: 0}
   m_PlayOnAwake: 1
   m_LoopMode: 0
-  m_Method: 1
-  m_Duration: 15
+  m_Method: 0
+  m_Duration: 40
   m_MaxSpeed: 10
   m_EasingMode: 0
   m_AlignmentMode: 1
