@@ -9,7 +9,13 @@ public class Enemy_stats : MonoBehaviour
     public float damage;
     public float health;
     public float gap = 2;
-    private string naam;
+
+    private GameObject boom;
+
+    private void Start()
+    {
+        boom = GameObject.Find("tree_01");
+    }
 
     private void Update()
     {
@@ -27,10 +33,6 @@ public class Enemy_stats : MonoBehaviour
 
     public void Terrorism()
     {
-        if(gameObject != null)
-        {
-            GameObject boom = GameObject.Find(naam);
-            naam = boom.name;
             if (Vector3.Distance(transform.position, boom.transform.position) < gap)
             {
                 Debug.Log("IM AT MY END");
@@ -38,7 +40,7 @@ public class Enemy_stats : MonoBehaviour
                 Destroy(gameObject);
                 Debug.Log(boom.GetComponent<EndTower>().health);
             }
-        }
+        
 
     }
 }

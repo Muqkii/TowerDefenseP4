@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.PlasticSCM.Editor.WebApi;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Splines;
+using UnityEngine.UI;
 
 public class Another_Enemy_Spawn : MonoBehaviour
 {
@@ -27,7 +29,11 @@ public class Another_Enemy_Spawn : MonoBehaviour
     Vector3 endLocation;
     Transform actualPos;
 
-    
+
+    public Text currentWaveText;
+    public Text waveTimerText;
+    public Text pressEnterToSkip;
+
     public Wave[] waves;
     int waveLength;
     int currentWave;
@@ -36,46 +42,42 @@ public class Another_Enemy_Spawn : MonoBehaviour
 
     bool gameEnd;
 
+    GameObject obj;
     void Start()
     {
         waveLength = waves.Length;
-        //spawnPosition = thePath.;
         timerWave = waves[currentWave].waveSpawnDelay;
-        //timerEnemy = waves[currentWave].enemySpawnDelay;
-        //timerGroup = waves[currentWave].groupSpawnDelay;
-        
-        //Vector3 pos = thePath.Spline.ToArray()[thePath.Splines.Count-1].Position;
-
-        
-        //actualPos.position = spawnPosition;
+        NumberToText(currentWaveText, currentWave);
     }
 
     void Update()
     {
         WaveManagement();
+        WaveSkip();
+        SkipTimer();
     }
-
-    /*void EnemySpawning()
+    void WaveManagement()
     {
-        for (int j = 0; j < waves[currentWave].enemiesToSpawn.Length; j++)
+        if (!gameEnd)
         {
-            timerGroup -= Time.deltaTime;
-            if(timerGroup < 0)
+            if ( itsWavingTime )
             {
-                for(int i = 0; i < waves[currentWave].groupsSpawnSize[currentGroup]; i++) 
+                EnemySpawning();
+            } else
+            {
+                timerWave -= Time.deltaTime;
+                NumberToText(waveTimerText, timerWave);
+                if( timerWave < 0.0f)
                 {
-                    timerEnemy -= Time.deltaTime;
-                    if(timerEnemy < 0)
-                    {
-                        Instantiate(waves[currentWave].enemiesToSpawn[currentGroup]);
-                    }
+                    itsWavingTime = true;
                 }
-                currentGroup++;
             }
         }
-        currentWave++;
-        itsWavingTime = false;
-    }*/
+        else
+        {
+            Debug.Log("Game End");
+        }
+    }
 
     void EnemySpawning()
     {
@@ -91,6 +93,7 @@ public class Another_Enemy_Spawn : MonoBehaviour
                 itsWavingTime = false;
                 timerWave = waves[currentWave].waveSpawnDelay;
                 currentWave++;
+                NumberToText(currentWaveText, currentWave);
             }
         }
         else if (currentGroup < waves[currentWave].enemiesToSpawn.Length)
@@ -111,28 +114,10 @@ public class Another_Enemy_Spawn : MonoBehaviour
                     timerEnemy -= Time.deltaTime;
                     if (timerEnemy < 0.0f)
                     {
-                        GameObject obj = Instantiate(waves[currentWave].enemiesToSpawn[currentGroup]);
+                        obj = Instantiate(waves[currentWave].enemiesToSpawn[currentGroup]);
 
                         obj.GetComponent<SplineAnimate>().Container = thePath;
-                        //obj.GetComponent<Junction>().thePath = thePath;
-                        //obj.GetComponent<Junction>().currentPath = thePath.Splines[0];
-
-                        //GameObject obj = SplineInstantiate.Instantiate<GameObject>(waves[currentWave].enemiesToSpawn[currentGroup]);
-
-                        //SplineAnimate(obj);
-                        //obj.transform.position = spawnPosition;
-
                         currentEnemy++;
-
-                        /*if(currentEnemy + 1 < waves[currentWave].enemiesToSpawn.Length)
-                        {
-                            currentEnemy++;
-                        }
-                        else
-                        {
-                            currentEnemy = 0;
-                            currentGroup++;
-                        }*/
                         timerEnemy = waves[currentWave].enemySpawnDelay;
                     }
                 }
@@ -140,25 +125,32 @@ public class Another_Enemy_Spawn : MonoBehaviour
         }
     }
 
-    void WaveManagement()
+
+    void WaveSkip()
     {
-        if (!gameEnd)
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            if ( itsWavingTime )
-            {
-                EnemySpawning();
-            } else if ( !itsWavingTime )
-            {
-                timerWave -= Time.deltaTime;
-                if( timerWave < 0.0f)
-                {
-                    itsWavingTime = true;
-                }
-            }
+            timerWave = 0;
+        }
+        //if button pressed skip wave timer
+    }
+
+    void NumberToText(Text text, float number)
+    {
+        int newNumber = (int)number;
+        text.text = newNumber.ToString();
+    }
+
+    void SkipTimer()
+    {
+        if (!itsWavingTime)
+        {
+            pressEnterToSkip.text = "Press the 'enter' key to skip timer";
         }
         else
         {
-            Debug.Log("Game End");
+            pressEnterToSkip.text = "";
         }
     }
+
 }
