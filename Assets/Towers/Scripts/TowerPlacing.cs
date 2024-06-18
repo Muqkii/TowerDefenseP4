@@ -11,6 +11,13 @@ public class TowerPlacing : MonoBehaviour
     public GameObject tower3;
     public GameObject tower4;
     public GameObject tower5;
+    
+    public float manaPool;
+    public float costTower1;
+    public float costTower2;   
+    public float costTower3;
+    public float costTower4;
+    public float costTower5;
 
     public float rotationSpeed;
     public float xCorrection;
@@ -20,8 +27,6 @@ public class TowerPlacing : MonoBehaviour
     private GameObject previewTower;
     private Vector3 hitPos;
     private int towerNumber;
-    private float manaPool;
-
     private void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -113,25 +118,30 @@ public class TowerPlacing : MonoBehaviour
     }
     public void PlaceTower()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && towerNumber == 1)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && towerNumber == 1 && manaPool >= costTower1)
         {
             Instantiate(tower1, hitPos, Quaternion.identity);
+            manaPool -= costTower1;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && towerNumber == 2)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && towerNumber == 2 && manaPool >= costTower2)
         {
             Instantiate(tower2, hitPos, Quaternion.identity);
+            manaPool -= costTower2;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && towerNumber == 3)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && towerNumber == 3 && manaPool >= costTower3)
         {
             Instantiate(tower3, hitPos, Quaternion.identity);
+            manaPool -= costTower3;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && towerNumber == 4)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && towerNumber == 4 && manaPool >= costTower4)
         {
             Instantiate(tower4, hitPos, Quaternion.identity);
+            manaPool -= costTower4;
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && towerNumber == 5)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && towerNumber == 5 && manaPool >= costTower5)
         {
             Instantiate(tower5, hitPos, Quaternion.identity);
+            manaPool -= costTower5;
         }
     }
 }

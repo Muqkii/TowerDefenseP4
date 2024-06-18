@@ -9,7 +9,6 @@ public class TowerBehavior : MonoBehaviour
     public float hitDelay;
     public float towerDamage;
     public float aoeSize;
-    public float manaCost;
     public bool hitAir;
     public bool hitGround;
 
