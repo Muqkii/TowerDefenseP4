@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5666605894155864465}
   - component: {fileID: 1057157234098077865}
   - component: {fileID: 1329995072972067750}
-  - component: {fileID: 3875748866655289559}
+  - component: {fileID: -6818100860927988526}
   m_Layer: 0
   m_Name: Boss 1
   m_TagString: Enemy
@@ -123,7 +123,7 @@ MonoBehaviour:
   damage: 25
   health: 300
   gap: 2
---- !u!114 &3875748866655289559
+--- !u!114 &-6818100860927988526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,17 +132,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3400430937123975445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
+  m_Script: {fileID: 11500000, guid: fa9cf381d3c300d4e83146b1afd097f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_LoopMode: 1
-  m_Method: 0
-  m_Duration: 100
-  m_MaxSpeed: 10
-  m_EasingMode: 0
-  m_AlignmentMode: 1
-  m_ObjectForwardAxis: 2
-  m_ObjectUpAxis: 1
-  m_StartOffset: 0
+  thePath: {fileID: 0}
+  speed: 0.1

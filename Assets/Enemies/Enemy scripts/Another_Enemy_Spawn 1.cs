@@ -33,6 +33,8 @@ public class Another_Enemy_Spawn : MonoBehaviour
     public Text currentWaveText;
     public Text waveTimerText;
     public Text pressEnterToSkip;
+    public Text pressEnterToStart;
+    public Text untilNextWave;
 
     public Wave[] waves;
     int waveLength;
@@ -42,10 +44,12 @@ public class Another_Enemy_Spawn : MonoBehaviour
 
     bool gameEnd;
 
+    bool gameStart;
+
     GameObject obj;
+    Transform spawnpoint;
     void Start()
     {
-        waveLength = waves.Length;
         timerWave = waves[currentWave].waveSpawnDelay;
         NumberToText(currentWaveText, currentWave);
     }
@@ -55,28 +59,33 @@ public class Another_Enemy_Spawn : MonoBehaviour
         WaveManagement();
         WaveSkip();
         SkipTimer();
+        spawnpoint = GameObject.Find("Spawnpoint").transform;
     }
     void WaveManagement()
     {
-        if (!gameEnd)
+        if (gameStart)
         {
-            if ( itsWavingTime )
+            if (!gameEnd)
             {
-                EnemySpawning();
-            } else
-            {
-                timerWave -= Time.deltaTime;
-                NumberToText(waveTimerText, timerWave);
-                if( timerWave < 0.0f)
+                if ( itsWavingTime )
                 {
-                    itsWavingTime = true;
+                    EnemySpawning();
+                } else
+                {
+                    timerWave -= Time.deltaTime;
+                    NumberToText(waveTimerText, timerWave);
+                    if( timerWave < 0.0f)
+                    {
+                        itsWavingTime = true;
+                    }
                 }
             }
+            else
+            {
+                Debug.Log("Game End");
+            }
         }
-        else
-        {
-            Debug.Log("Game End");
-        }
+
     }
 
     void EnemySpawning()
@@ -93,7 +102,7 @@ public class Another_Enemy_Spawn : MonoBehaviour
                 itsWavingTime = false;
                 timerWave = waves[currentWave].waveSpawnDelay;
                 currentWave++;
-                NumberToText(currentWaveText, currentWave);
+                NumberToText(currentWaveText, currentWave + 1);
             }
         }
         else if (currentGroup < waves[currentWave].enemiesToSpawn.Length)
@@ -116,7 +125,7 @@ public class Another_Enemy_Spawn : MonoBehaviour
                     {
                         obj = Instantiate(waves[currentWave].enemiesToSpawn[currentGroup]);
 
-                        obj.GetComponent<SplineAnimate>().Container = thePath;
+                        obj.GetComponent<Spline_Movement>().thePath = thePath;
                         currentEnemy++;
                         timerEnemy = waves[currentWave].enemySpawnDelay;
                     }
@@ -128,10 +137,21 @@ public class Another_Enemy_Spawn : MonoBehaviour
 
     void WaveSkip()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (gameStart)
         {
-            timerWave = 0;
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                timerWave = 0;
+            }
         }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                gameStart = true;
+            }
+        }
+
         //if button pressed skip wave timer
     }
 
@@ -143,9 +163,19 @@ public class Another_Enemy_Spawn : MonoBehaviour
 
     void SkipTimer()
     {
-        if (!itsWavingTime)
+        if (!gameStart)
+        {
+            pressEnterToStart.text = "Press the 'enter' key to start the game";
+        }
+        else
+        {
+            pressEnterToStart.text = "";
+        }
+
+        if (!itsWavingTime && gameStart)
         {
             pressEnterToSkip.text = "Press the 'enter' key to skip timer";
+            untilNextWave.text = "Time until next wave";
         }
         else
         {

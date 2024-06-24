@@ -1815,9 +1815,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9161361423412147615}
   - component: {fileID: 4750501710497102869}
-  - component: {fileID: 1823141070800317583}
   - component: {fileID: 1359965831637046122}
   - component: {fileID: 5821051931621130887}
+  - component: {fileID: 590194262840555352}
   m_Layer: 0
   m_Name: Enemy 4
   m_TagString: Air
@@ -1863,29 +1863,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1823141070800317583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7064692334147523409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_LoopMode: 0
-  m_Method: 0
-  m_Duration: 60
-  m_MaxSpeed: 10
-  m_EasingMode: 0
-  m_AlignmentMode: 1
-  m_ObjectForwardAxis: 2
-  m_ObjectUpAxis: 1
-  m_StartOffset: 0
 --- !u!114 &1359965831637046122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1899,9 +1876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  fireRate: 0.5
   health: 170
-  speed: 30
+  gap: 2
 --- !u!65 &5821051931621130887
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1923,6 +1899,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &590194262840555352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064692334147523409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9cf381d3c300d4e83146b1afd097f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thePath: {fileID: 0}
+  speed: 0.5
 --- !u!1 &7377276911651842283
 GameObject:
   m_ObjectHideFlags: 0

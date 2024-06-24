@@ -21,10 +21,17 @@ public class TowerPlacing : MonoBehaviour
     private Vector3 hitPos;
     private int towerNumber;
 
+    Ray ray;
+    RaycastHit hit;
+    float scrollInput;
+
     private void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        if (buildMode)
+        {
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        }
+
 
         if (Physics.Raycast(ray, out hit))
         {
@@ -90,7 +97,11 @@ public class TowerPlacing : MonoBehaviour
 
         }
 
-        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+        if (buildMode)
+        {
+            scrollInput = Input.GetAxis("Mouse ScrollWheel");
+        }
+        
         if (scrollInput != 0f)
         {
             float rotationAmount = scrollInput * rotationSpeed;
