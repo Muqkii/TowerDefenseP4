@@ -8,8 +8,9 @@ public class Enemy_stats : MonoBehaviour
 {
     public float damage;
     public float health;
+    public float manaPay;
     public float gap = 2;
-    private string naam;
+    private string naam = "tree_01";
 
     private void Update()
     {
@@ -21,6 +22,8 @@ public class Enemy_stats : MonoBehaviour
     {
         if (health <= 0)
         {
+            GameObject player = GameObject.Find("Player");
+            player.GetComponent<TowerPlacing>().manaPool += manaPay;
             Destroy(gameObject);
         }
     }
@@ -30,7 +33,7 @@ public class Enemy_stats : MonoBehaviour
         if(gameObject != null)
         {
             GameObject boom = GameObject.Find(naam);
-            naam = boom.name;
+            //naam = boom.name;
             if (Vector3.Distance(transform.position, boom.transform.position) < gap)
             {
                 Debug.Log("IM AT MY END");

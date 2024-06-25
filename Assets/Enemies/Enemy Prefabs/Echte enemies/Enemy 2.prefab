@@ -1226,9 +1226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 4
-  fireRate: 2
   health: 70
-  speed: 15
+  manaPay: 20
+  gap: 2
 --- !u!65 &8817847786394263368
 BoxCollider:
   m_ObjectHideFlags: 0

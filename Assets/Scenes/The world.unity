@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2752,6 +2752,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
+      propertyPath: manaPool
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
+      propertyPath: costTower1
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
+      propertyPath: costTower4
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
+      propertyPath: towerPrePlacable
+      value: 
+      objectReference: {fileID: 2898324580030430493, guid: 51a2b0ba32ace3d469dd709da86395d8, type: 3}
+    - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
+      propertyPath: towerPreUnPlacable
+      value: 
+      objectReference: {fileID: 9220013253367720854, guid: 43505d7d2b689e943a862e1f5a5d1613, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

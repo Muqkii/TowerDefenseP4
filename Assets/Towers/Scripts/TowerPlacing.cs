@@ -6,7 +6,8 @@ using UnityEngine;
 public class TowerPlacing : MonoBehaviour
 {
     public GameObject tower1;
-    public GameObject towerPre1;
+    public GameObject towerPrePlacable;
+    public GameObject towerPreUnPlacable;
     public GameObject tower2;
     public GameObject tower3;
     public GameObject tower4;
@@ -24,6 +25,7 @@ public class TowerPlacing : MonoBehaviour
     public float yCorrection;
 
     private bool buildMode = false;
+    private bool placable;
     private GameObject previewTower;
     private Vector3 hitPos;
     private int towerNumber;
@@ -39,14 +41,16 @@ public class TowerPlacing : MonoBehaviour
             hitPos.y += yCorrection;
             //Debug.Log("Raycast hit");
         }
+
+        //if ()
         
-        if (Input.GetKeyDown(KeyCode.Alpha1) && buildMode == false)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && buildMode == false && placable == true)
         {
             buildMode = true;
 
             towerNumber = 1;
 
-            GameObject obj = Instantiate(towerPre1, hitPos, Quaternion.identity);
+            GameObject obj = Instantiate(towerPrePlacable, hitPos, Quaternion.identity);
             previewTower = obj;
             Debug.Log("Buildmode werkt" + buildMode);
         }
@@ -56,7 +60,7 @@ public class TowerPlacing : MonoBehaviour
 
             towerNumber = 2;
 
-            GameObject obj = Instantiate(towerPre1, hitPos, Quaternion.identity);
+            GameObject obj = Instantiate(towerPrePlacable, hitPos, Quaternion.identity);
             previewTower = obj;
             Debug.Log("Buildmode werkt" + buildMode);
         }
@@ -66,7 +70,7 @@ public class TowerPlacing : MonoBehaviour
 
             towerNumber = 3;
 
-            GameObject obj = Instantiate(towerPre1, hitPos, Quaternion.identity);
+            GameObject obj = Instantiate(towerPrePlacable, hitPos, Quaternion.identity);
             previewTower = obj;
             Debug.Log("Buildmode werkt" + buildMode);
         }
@@ -76,7 +80,7 @@ public class TowerPlacing : MonoBehaviour
 
             towerNumber = 4;
 
-            GameObject obj = Instantiate(towerPre1, hitPos, Quaternion.identity);
+            GameObject obj = Instantiate(towerPrePlacable, hitPos, Quaternion.identity);
             previewTower = obj;
             Debug.Log("Buildmode werkt" + buildMode);
         }
@@ -86,7 +90,7 @@ public class TowerPlacing : MonoBehaviour
 
             towerNumber = 5;
 
-            GameObject obj = Instantiate(towerPre1, hitPos, Quaternion.identity);
+            GameObject obj = Instantiate(towerPrePlacable, hitPos, Quaternion.identity);
             previewTower = obj;
             Debug.Log("Buildmode werkt" + buildMode);
         }
