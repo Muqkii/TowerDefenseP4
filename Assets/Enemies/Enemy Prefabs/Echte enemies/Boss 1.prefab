@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 25
   health: 300
+  manaPay: 250
   gap: 2
 --- !u!114 &-6818100860927988526
 MonoBehaviour:

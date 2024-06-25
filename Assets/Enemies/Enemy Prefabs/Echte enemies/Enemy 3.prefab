@@ -325,6 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   health: 50
+  manaPay: 20
   gap: 2
 --- !u!65 &4463146664671614565
 BoxCollider:

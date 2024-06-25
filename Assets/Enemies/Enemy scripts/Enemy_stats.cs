@@ -8,6 +8,7 @@ public class Enemy_stats : MonoBehaviour
 {
     public float damage;
     public float health;
+    public float manaPay;
     public float gap = 2;
 
     private GameObject boom;
@@ -27,6 +28,8 @@ public class Enemy_stats : MonoBehaviour
     {
         if (health <= 0)
         {
+            GameObject player = GameObject.Find("Player");
+            player.GetComponent<TowerPlacing>().manaPool += manaPay;
             Destroy(gameObject);
         }
     }
