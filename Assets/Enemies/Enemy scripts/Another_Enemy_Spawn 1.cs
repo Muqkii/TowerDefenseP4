@@ -35,6 +35,8 @@ public class Another_Enemy_Spawn : MonoBehaviour
     public Text pressEnterToSkip;
     public Text pressEnterToStart;
     public Text untilNextWave;
+    public Text nextEnemies;
+    public Text nextEnemiesText;
 
     public Wave[] waves;
     int waveLength;
@@ -42,9 +44,13 @@ public class Another_Enemy_Spawn : MonoBehaviour
     int currentGroup;
     int currentEnemy;
 
+    int currentTextEnemy;
+
     bool gameEnd;
 
     bool gameStart;
+
+    bool waveStarted;
 
     GameObject obj;
     Transform spawnpoint;
@@ -52,6 +58,7 @@ public class Another_Enemy_Spawn : MonoBehaviour
     {
         timerWave = waves[currentWave].waveSpawnDelay;
         NumberToText(currentWaveText, currentWave);
+        nextEnemiesText.enabled = false;
     }
 
     void Update()
@@ -60,6 +67,7 @@ public class Another_Enemy_Spawn : MonoBehaviour
         WaveSkip();
         SkipTimer();
         spawnpoint = GameObject.Find("Spawnpoint").transform;
+        NextEnemies();
     }
     void WaveManagement()
     {
@@ -77,6 +85,7 @@ public class Another_Enemy_Spawn : MonoBehaviour
                     if( timerWave < 0.0f)
                     {
                         itsWavingTime = true;
+                        waveStarted = true;
                     }
                 }
             }
@@ -170,6 +179,8 @@ public class Another_Enemy_Spawn : MonoBehaviour
         else
         {
             pressEnterToStart.text = "";
+            nextEnemiesText.enabled = true;
+            waveStarted = true;
         }
 
         if (!itsWavingTime && gameStart)
@@ -183,4 +194,19 @@ public class Another_Enemy_Spawn : MonoBehaviour
         }
     }
 
+
+    void NextEnemies()
+    {
+        if (waveStarted)
+        {
+            nextEnemies.text = " ";
+            for (int i = 0; i < waves[currentWave].enemiesToSpawn.Length; i++)
+            {
+                nextEnemies.text += waves[currentWave].enemiesToSpawn[i].name + " X " + waves[currentWave].groupsSpawnSize[i] + "\n";
+            }
+            waveStarted = false;
+        }
+
+        
+    }
 }

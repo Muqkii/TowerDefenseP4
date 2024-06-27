@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 4463146664671614565}
   - component: {fileID: 1539491941575495658}
   m_Layer: 0
-  m_Name: Enemy 3
+  m_Name: Eyeball
   m_TagString: Air
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
