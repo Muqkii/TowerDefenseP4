@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TowerPlacing : MonoBehaviour
@@ -53,7 +54,7 @@ public class TowerPlacing : MonoBehaviour
 
         //if ()
         
-        if (Input.GetKeyDown(KeyCode.Alpha1) && buildMode == false && placable == true)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && buildMode == false)
         {
             buildMode = true;
 
@@ -105,6 +106,7 @@ public class TowerPlacing : MonoBehaviour
         }
         if (previewTower)
         {
+            //hitPos.y = previewTower.GetComponent<BoxCollider>().bounds.extents.y / 2;
             previewTower.transform.position = hitPos;
 
         }

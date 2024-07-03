@@ -3023,6 +3023,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
+      propertyPath: tower1
+      value: 
+      objectReference: {fileID: 144740, guid: f8f047695f472d84c9c1786697b77ea9, type: 3}
+    - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
+      propertyPath: tower2
+      value: 
+      objectReference: {fileID: 2326224053179243586, guid: fe1037774e009d74489852ed9f1797da, type: 3}
+    - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
+      propertyPath: tower3
+      value: 
+      objectReference: {fileID: 129420, guid: d3ef549050e9b0542b4f3c3dd47a1085, type: 3}
+    - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
       propertyPath: manaPool
       value: 100
       objectReference: {fileID: 0}
@@ -3031,8 +3043,24 @@ PrefabInstance:
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
+      propertyPath: costTower2
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
+      propertyPath: costTower3
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
       propertyPath: costTower4
-      value: 100
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
+      propertyPath: costTower5
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
+      propertyPath: yCorrection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8076802935148758775, guid: 760cee83680c59b45bfc715bdb43aeaf, type: 3}
       propertyPath: towerPrePlacable
