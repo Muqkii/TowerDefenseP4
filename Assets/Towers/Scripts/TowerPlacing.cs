@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerPlacing : MonoBehaviour
 {
@@ -31,10 +32,42 @@ public class TowerPlacing : MonoBehaviour
     private Vector3 hitPos;
     private int towerNumber;
 
+    [Header ("UI")]
+
+    public UnityEngine.UI.Text manaPoolText;
+    public UnityEngine.UI.Text tower1Info;
+    public UnityEngine.UI.Text tower2Info;
+    public UnityEngine.UI.Text tower3Info;
+    public UnityEngine.UI.Text tower4Info;
+    public UnityEngine.UI.Text tower5Info;
+    public UnityEngine.UI.Image towerInfoBackground;
+
+    bool towerInfoWindow;
 
     Ray ray;
     RaycastHit hit;
     float scrollInput;
+
+    float tower1Damage;
+    float tower2Damage;
+    float tower3Damage;
+    float tower4Damage;
+    float tower5Damage;
+
+    private void Start()
+    {
+        tower1Damage = Resources.Load<TowerBehavior>("Tower/Basic tower").towerDamage;
+        tower2Damage = Resources.Load<TowerBehavior>("Tower/Snel low damage").towerDamage;
+        tower3Damage = Resources.Load<TowerBehavior>("Tower/Boem tower").towerDamage;
+        tower4Damage = Resources.Load<TowerBehavior>("Tower/sniper").towerDamage;
+        tower5Damage = Resources.Load<TowerBehavior>("Tower/Anti air").towerDamage;
+
+        //tower1Damage = GameObject.Find("Basic tower").GetComponent<TowerBehavior>().towerDamage;
+        //tower2Damage = GameObject.Find("Snel low damage").GetComponent<TowerBehavior>().towerDamage;
+        //tower3Damage = GameObject.Find("Boem tower").GetComponent<TowerBehavior>().towerDamage;
+        //tower4Damage = GameObject.Find("sniper").GetComponent<TowerBehavior>().towerDamage;
+        //tower5Damage = GameObject.Find("Anti Air").GetComponent<TowerBehavior>().towerDamage;
+    }
 
     private void Update()
     {
@@ -137,6 +170,8 @@ public class TowerPlacing : MonoBehaviour
             Debug.Log("Buildmode cancel werkt");
         }
 
+        NumberToText(manaPoolText, manaPool);
+        TowerInfoCheck();
     }
     public void PlaceTower()
     {
@@ -165,5 +200,76 @@ public class TowerPlacing : MonoBehaviour
             Instantiate(tower5, hitPos, Quaternion.identity);
             manaPool -= costTower5;
         }
+    }
+
+    void NumberToText(Text text, float number)
+    {
+        int newNumber = (int)number;
+        text.text = newNumber.ToString();
+    }
+
+    void TowerInfoCheck()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Debug.Log("X is ingedrukken");
+            if (towerInfoWindow)
+            {
+                towerInfoWindow = false;
+            }
+            else
+            {
+                towerInfoWindow = true;
+            }
+        }
+        if (towerInfoWindow)
+        {
+            GameObject.Find("TowerInfoButton").GetComponent<Text>().text = "Press 'X' to close window";
+            GameObject.Find("TowerInfoBackground").GetComponent<Image>().enabled = true;
+            TowerInfoConverter(1, tower1Info, costTower1, tower1Damage);
+            TowerInfoConverter(2, tower2Info, costTower2, tower2Damage);
+            TowerInfoConverter(3, tower3Info, costTower3, tower3Damage);
+            TowerInfoConverter(4, tower4Info, costTower4, tower4Damage);
+            TowerInfoConverter(5, tower5Info, costTower5, tower5Damage);
+        }
+        else
+        {
+            GameObject.Find("TowerInfoButton").GetComponent<Text>().text = "Press 'X' to see tower info";
+            GameObject.Find("TowerInfoBackground").GetComponent<Image>().enabled = false;
+            tower1Info.text = null;
+            tower2Info.text = null;
+            tower3Info.text = null;
+            tower4Info.text = null;
+            tower5Info.text = null;
+        }
+    }
+
+    void TowerInfoConverter(int tower,Text text, float manaCost, float damage)
+    {
+        switch (tower)
+        {
+            case 1:
+                TowerInfoToText(tower, text, manaCost, damage, tower1);
+                break;
+            case 2:
+                TowerInfoToText(tower, text, manaCost, damage, tower2);
+                break;
+            case 3:
+                TowerInfoToText(tower, text, manaCost, damage, tower3);
+                break;
+            case 4:
+                TowerInfoToText(tower, text, manaCost, damage, tower4);
+                break;
+            case 5:
+                TowerInfoToText(tower, text, manaCost, damage, tower5);
+                break;
+        }
+    }
+
+    void TowerInfoToText(int tower, Text text, float manaCost, float damage, GameObject theTower)
+    {
+        int manaCostInt = (int)manaCost;
+        int damageInt = (int)damage;
+        text.text = theTower.name + ": does '" + damage + "' damage and costs '" + manaCostInt + "' mana.";
     }
 }

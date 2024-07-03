@@ -1,10 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Splines;
-using static UnityEditor.FilePathAttribute;
 
 public class Spline_Movement : MonoBehaviour
 {
@@ -25,6 +20,7 @@ public class Spline_Movement : MonoBehaviour
         //Quaternion lookRotation = Quaternion.identity;
         //eulerAngles = thePath.EvaluateTangent(thePath.Spline, duration);
         duration += (speed * Time.deltaTime) * 0.01f;
+        //Vector3 pos = thePath.EvaluatePosition(thePath.Spline, duration);
         transform.position = thePath.EvaluatePosition(thePath.Spline, duration);
         //transform.LookAt(thePath.gameObject.transform.position * thePath.EvaluateAcceleration(thePath.Spline, duration));
         //transform.LookAt(oldPos);

@@ -121,7 +121,7 @@ MonoBehaviour:
   rangeValue: 40
   fireRate: 2.5
   hitDelay: 1.5
-  towerDamage: 55
+  towerDamage: 40
   aoeSize: 3
   hitAir: 0
   hitGround: 1
