@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.PlasticSCM.Editor.WebApi;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Splines;
 using UnityEngine.UI;
@@ -68,6 +63,7 @@ public class Another_Enemy_Spawn : MonoBehaviour
         SkipTimer();
         spawnpoint = GameObject.Find("Spawnpoint").transform;
         NextEnemies();
+        NewNumberToText(currentWaveText, currentWave + 1);
     }
     void WaveManagement()
     {
@@ -111,7 +107,6 @@ public class Another_Enemy_Spawn : MonoBehaviour
                 itsWavingTime = false;
                 timerWave = waves[currentWave].waveSpawnDelay;
                 currentWave++;
-                NumberToText(currentWaveText, currentWave + 1);
             }
         }
         else if (currentGroup < waves[currentWave].enemiesToSpawn.Length)
@@ -169,6 +164,13 @@ public class Another_Enemy_Spawn : MonoBehaviour
         int newNumber = (int)number;
         text.text = newNumber.ToString();
     }
+
+    void NewNumberToText(Text text, float number)
+    {
+        int newNumber = (int)number;
+        text.text = newNumber.ToString() + " / " + waves.Length;
+    }
+
 
     void SkipTimer()
     {

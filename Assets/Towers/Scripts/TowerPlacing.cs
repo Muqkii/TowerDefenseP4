@@ -86,7 +86,7 @@ public class TowerPlacing : MonoBehaviour
 
         //if ()
         
-        if (Input.GetKeyDown(KeyCode.Alpha1) && buildMode == false && placable == true)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && buildMode == false)
         {
             buildMode = true;
 

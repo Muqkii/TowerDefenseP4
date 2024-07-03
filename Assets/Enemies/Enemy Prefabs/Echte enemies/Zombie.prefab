@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
-  health: 100
+  health: 150
   manaPay: 15
   gap: 2
 --- !u!65 &-6569278103143448324
@@ -842,7 +842,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thePath: {fileID: 0}
   speed: 1
-  duration: 0
 --- !u!1 &3205936805314255928
 GameObject:
   m_ObjectHideFlags: 0
